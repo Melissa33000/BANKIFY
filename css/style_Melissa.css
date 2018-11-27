@@ -1,0 +1,1047 @@
+/* Typographies : */
+@font-face{
+  font-family: "Bukhari Script";
+  src: url('../font/BukhariScript.ttf');
+}
+
+html {
+  height : 100%;
+}
+body{
+  min-height: 100vh;
+  font-family: Arial;
+}
+
+/* Pour les titres de toutes mes pages */
+h1{
+  text-align: center;
+  margin :20px auto;
+  display: block ;
+}
+
+/*************************************************** UTILE POUR APP FINALE **********************************************/
+
+/* GENERAL SITE */
+/* Changer le pointeur des boutons */
+input[type="button"], input[type="submit"], input[type="reset"]{
+  cursor: pointer;
+}
+
+/* Changer la taille et l'apparence des boutons */
+form input[type="submit"], form input[type="button"]{
+  width: 100px;
+  height: 35px;
+  border-radius: 10px;
+  border-color: #FFAFD1;
+}
+form input[type="submit"]:hover, form input[type="button"]:hover{
+  background-color:#FFAFD1;
+}
+
+/* HEADER APP */
+#headerAPP{
+  display: flex;
+  width : 100%;
+  height: 120px;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  background: #fff;
+  border-bottom : 2px solid black;
+  background-color: white;
+}
+
+#headerAPP a{
+  color: black;
+  font-weight: bold;
+}
+
+#headerAPP a :hover{
+  text-underline-color: black;
+}
+
+#boutonheader{
+  display:flex;
+  width: 200px;
+  justify-content: space-between;
+}
+
+.message_bienvenue{
+  color : black;
+  font-weight: bold;
+  font-size: 40px;
+}
+
+.bankifyScript{
+  max-height : 100%;
+  width : auto;
+}
+
+/* NAV APP + CONTENEUR NAV-CONTENU ONGLET */
+#navPage{
+  display: flex;
+  width : 100%;
+  height: 800px;
+
+}
+#navAPP{
+  display : flex;
+  border-right: 2px solid black;
+  margin : 0px;
+  background: black;
+  color : white;
+  font-size: 20px;
+}
+
+#navAPP ul{
+  display : flex;
+  flex-direction : column;
+  list-style: none;
+  margin-left : 0px;
+  padding-left : 0px;
+  margin-bottom : 0px;
+  padding-bottom : 0px;
+}
+#navAPP li{
+  display : flex;
+  align-items: center;
+  justify-content: center;
+  /*Obligé de mettre un text-align pour Simuler budget...*/
+  text-align: center;
+  padding : 0px 20px 0px 20px;
+  height : 100%;
+  width : 100%;
+}
+#navAPP li:not(:last-child){
+  border-bottom: 1px solid white;
+}
+
+
+/* FOOTER */
+/* J'ai mis une bordure pour voir le futur footer */
+footer{
+  padding-top : 20px;
+  width: 100%;
+  display : flex;
+  height: 120px;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  border-top : 1px solid black;
+  align-content: baseline;
+  border-bottom : 1px dotted gray;
+  padding-bottom : 20px;
+  background-color: white;
+}
+.reseauxSociaux{
+  display: flex;
+  align-self: center;
+  flex-direction: column;
+  text-align: center;
+
+}
+.contactIco{
+  display: flex;
+  align-self: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.stylefooter{
+  color : black;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.storeIco{
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+
+}
+.logoBankify{
+  display: flex;
+  align-self: center;
+
+}
+.logoFacebook, .logoTwitter, .logoInstagram, .logoContact{
+  width : 64px;
+}
+.logoAppStore, .logoGooglePlay{
+  width : 135px;
+}
+.logoAppStore{
+  margin-bottom: 8px;
+}
+
+
+/* CONTENU PAGE ONGLET */
+/* HEADER ONGLET */
+#headerAPPonglet {
+  display : flex;
+  color: white;
+  height: 90px;
+  border-bottom: 2px solid #191919;
+  text-align: center;
+  background-image: linear-gradient(to right, #ffd11a, #F5701B, #FD3F4F, #C02382, #7855c3, #6666ff, #2E94F8, #37AC5C, #39ac39);
+}
+
+/* Page à côté des onglets dans APP */
+#pageOnglet{
+  width : 100%;
+  overflow : auto;
+}
+
+#bodyOnglet {
+  width: 100%;
+}
+
+/********************************************* Pour les pages VIREMENT 1, 2 et 3 *****************************************/
+#nomdeloperation{
+  margin-left: 3px;
+}
+
+.owl-carousel .item {
+  background-color: #00b3b3;
+  border-radius: 10px;
+  padding: 10px;
+  height: 100px;
+  text-align: center;
+}
+
+.owl-carousel .item table {
+  width : 100%;
+}
+
+.owl-nav {
+  display: block !important;
+}
+
+#virement1 input[type="radio"] {
+  visibility : hidden;
+}
+
+#virement1{
+  padding : 50px;
+  box-sizing: border-box;
+}
+
+#virement3{
+  padding : 50px;
+}
+
+.titrevirement{
+  font-weight: bold;
+  font-size: 20px;
+}
+
+/* Pour virement2 et virement3 */
+.virement fieldset{
+  width: 700px;
+  margin: auto;
+  border-radius: 10px;
+  padding: 30px;
+  background-image: url("../images/wallpaper/Photo04.jpg");
+}
+
+.virementencart {
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.montant.montantencart {
+  width: 35px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.virement input{
+  size: 30px;
+}
+
+.virement fieldset {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.virement fieldset table{
+  width: 100%;
+}
+
+.virement fieldset table td span {
+  width: 160px;
+  text-align : left;
+  display : inline-block;
+}
+
+.virement fieldset table td{
+  padding:0px;
+}
+
+.policevirement {
+  color : white;
+  font-weight: bold;
+  /*display: inline-block;
+  width : 170px;en attendant de faire du flex*/
+}
+
+/* Pour que le CSS prenne cette propriété (voir poids des sélecteurs)*/
+.virement fieldset table td span.espacement{
+  width : 132px;
+}
+
+#montant {
+  width : 80px;
+  border: 1px solid #ccc;
+  border-radius : 5px;
+  padding : 5px;
+}
+
+/* VIREMENT 2 : Changer le pointeur des boutons */
+.bouton_designvirement{
+  margin-top : 30px;
+  margin-bottom : 0px;
+  text-align: center;
+  padding: 10px;
+}
+
+.bouton_designvirement input[type="submit"], .bouton_designvirement input[type="reset"]{
+  cursor: pointer;
+  width: 100px;
+  height: 35px;
+  border-radius: 10px;
+  border-color: #008080;
+}
+
+.bouton_designvirement input[type="submit"]:hover, .bouton_designvirement input[type="reset"]:hover{
+  background-color:#008080;
+}
+
+/*********************************** Pour les pages INSCRIPTION - CONNEXION 1 et 2  *************************************/
+
+/* Design des boutons Envoyer - Annuler */
+.bouton_design{
+  margin-top : 30px;
+  margin-bottom : 0px;
+  text-align: center;
+  padding: 10px;
+}
+
+.formDesign input[type="submit"], .formDesign input[type="reset"]{
+  cursor: pointer;
+  width: 100px;
+  height: 35px;
+  border-radius: 10px;
+  border-color: #FFAFD1;
+}
+
+.formDesign input[type="submit"]:hover, .formDesign input[type="reset"]:hover{
+  background-color:#FFAFD1;
+}
+
+/* Image en Background pour les pages INSCRIPTION, CONNEXION 1 et 2*/
+.backgroundimage{
+  width : 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url("../images/wallpaper/Photo02.jpg");
+  background-repeat: no-repeat;
+  background-size : cover;
+  background-attachment: fixed;
+}
+
+/* Design des formulaire */
+.formDesign{
+  border-radius: 10px; /* bordures arrondis */
+  margin-bottom: 3%;
+  margin-top: 3%;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.formAjust{
+  width: 90%;
+  max-width : 600px;
+  margin: auto;
+}
+
+/* Ajustement pour le design des pages Connexion 1 et Connexion 2*/
+.formAjustConnect{
+  width : 50%;
+  margin : auto;
+}
+
+.champs_form_C{
+  width : 100%;
+  padding-left : 10px;
+  margin-top : 30px;
+}
+
+.label_form_C{
+  text-align: right;
+}
+
+.champs_form_C{
+  padding-left : 15px;
+  padding-right : 15px;
+}
+
+.labelprofil_C{
+  padding: 5px 5px 5px 0px;
+  float: left;
+}
+/* Ajustement pour le design de la page Inscription*/
+#inscription .label_form{
+  width : 30%;
+  text-align: right;
+}
+#inscription .champ_form{
+  padding-left : 15px;
+  width: 65%;
+}
+
+/* Design des infobulles */
+.fa-question-circle{
+  color : black;
+  padding-left : 5px;
+  position : relative;
+  cursor : pointer;
+}
+
+.fa-question-circle:hover::after{
+  content : attr(data-info);
+  position : absolute;
+  left : 0px;
+  top : 20px;
+  min-width : 200px;
+  border-radius : 10px;
+  background-color : rgba(0, 0, 0, 0.5);
+  padding : 10px;
+  color : #fff;
+  font-size : 14px;
+  z-index : 1;
+}
+
+/* Pour les PAGES INSCRIPTION et CONNEXION1 */
+.unhide_mdp{
+  padding: 5px 5px 5px 0px;
+  width : 24px;
+  position: relative;
+  z-index: 2;
+  margin-left: -30px;
+  margin-bottom : 4px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**************************************** A TRIER !! car CSS parfois commun avec Sirika ************************************/
+
+/* PAGE INSCRIPTION */
+#champs_obligatoires{
+  margin-top : 10px;
+  margin-left : 20%;
+}
+
+.champs_form {
+  width : 100%;
+  padding-left : 10px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top : 30px;
+}
+
+.label_form{
+  width : 40%;
+  text-align: right;
+}
+
+.champ_form{
+  padding-left : 15px;
+  width: 50%;
+}
+
+/* style Envoyer - Annuler */
+.bouton_form{
+  margin-top : 30px;
+  margin-bottom : 25px;
+  text-align: center;
+}
+
+/* STYLE DES INPUT TEXT, EMAIL, NUMBER et DATE */
+#inscription input[type=text], #inscription input[type=email], #inscription input[type=number], #inscription input[type=date], #inscription input[type=password]{
+  width : 85%;
+  border: 1px solid #ccc;
+  border-radius : 5px;
+  padding : 5px;
+}
+
+/* STYLE DES INPUT TEXT, EMAIL, NUMBER et DATE */
+#connexion1 input[type=email], #connexion1 input[type=password]{
+  width : 85%;
+  border: 1px solid #ccc;
+  border-radius : 5px;
+  padding : 5px;
+}
+
+/* STYLE DES INPUT TEXT, EMAIL, NUMBER et DATE */
+#connexion2 input[type=email]{
+  width : 85%;
+  border: 1px solid #ccc;
+  border-radius : 5px;
+  padding : 5px;
+}
+
+/* STYLE DES INPUT TEXT, EMAIL, NUMBER et DATE AU SURVOL */
+input[type=text]:hover, input[type=email]:hover, input[type=number]:hover, input[type=date]:hover, input[type=password]:hover{
+  border: 1px solid #6f42c1;
+}
+
+/* Mesage erreur côté serveur + JS */
+#error_datasrv, #error_datajs{
+  background-color : rgba(236, 74, 89, 0.5);
+  color : white;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Message de réussite d'update, ou création etc côté SERVEUR */
+#success_datasrv{
+  background-color: rgba(142,244,224, 1);
+  color : white;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Mettre le message d'erreur de chaque champ au même padding que leur champ */
+.message_erreur{
+  padding : 5px;
+}
+
+/* Style des labels mais pas ceux de civilité (Civilite :, Mr,Mme) */
+.labelprofil{
+  padding: 5px 5px 5px 0px;
+}
+
+/* Style du label Civilité : */
+.labelciv2{
+}
+
+/* ADAPTATION DU FORMULAIRE SELON LES TAILLES D'ECRAN */
+/* A partir d'une certaine taille, bootstrap fait basculer les input donc je redécale les label sur la gauche sinon ils restent tout à droite alors que le champ est en bas et ça ressemble à rien */
+@media (max-width: 991px){
+  .labelprofil{
+    padding: 5px 5px 5px 0px;
+    float: left;
+  }
+
+  .labelciv2{
+    float: left;
+  }
+}
+
+/* Quand l'écran devient vraiment petit je mets une taille auto aux input et j'enlève le * et le * Champs obligatoires sinon les étoiles s'affichent en bas et c'est vraiment moche */
+@media (max-width: 406px){
+  input[type=text], input[type=email], input[type=number], input[type=date], input[type=password]{
+    width : auto;
+    border: 1px solid #ccc;
+    border-radius : 5px;
+    padding : 5px;
+  }
+  .etoile, #champs_obligatoires{
+    display : none;
+  }
+}
+
+/* PAGE BUDGET */
+.btn_app_budget{
+  display: flex;
+  width : 100%;
+  border : 1px solid black;
+  flex-wrap: wrap;
+}
+
+.btn_app_budget input[type=button]{
+  width : 50%;
+}
+
+/* NEED RUBAN BUDGET GLOBAL RESPONSIVE */
+#tableRubanBudget{
+  width : 100%;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  margin-top: 15px;
+}
+
+#tableRubanBudget .itemRubanBudget{
+  width : 33.3333333%;
+  text-align: center;
+  border : 1px solid black;
+}
+
+@media screen and (max-width: 640px) {
+  #tableRubanBudget{
+    flex-direction: column;
+    width: auto;
+  }
+  #tableRubanBudget .itemRubanBudget{
+    width : 100%;
+  }
+}
+
+/* affichage budget par catégories */
+#budgetCat{
+  width : 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: auto;
+  margin-top: 25px;
+}
+
+.itemBudgetCat{
+  width : 20%;
+  text-align: center;
+  border : 1px solid white;
+  border-radius : 10px;
+  /*    haut droite bas gauche  */
+  margin : 0px 20px 20px 0px;
+  padding : 10px;
+}
+
+.itemBudgetCat h5{
+  padding-top : 10px;
+  padding-bottom : 10px;
+  color: white;
+}
+
+@media screen and (min-width: 575px) and (max-width : 774px) {
+  .itemBudgetCat{
+    width : 40%;
+  }
+  .catBudget{
+    display: flex;
+    justify-content: center;
+    width : 100%;
+
+  }
+}
+
+@media screen and (max-width: 574px) {
+  #budgetCat{
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+  }
+  .itemBudgetCat{
+    width : 100%;
+  }
+  .catBudget{
+    display: flex;
+    justify-content: center;
+    width : 100%;
+
+  }
+}
+
+.catBudget{
+  border : 1px dotted black;
+  width : auto;
+  padding : 5px;
+  text-align: center;
+}
+
+/* PAGE PROFIL */
+#pageProfil{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width : 50%;
+  margin: auto;
+}
+#pageProfil h4{
+  margin-top: 30px;
+  margin-bottom: -5px;
+  margin-left : -2.5px;
+}
+.test{
+  width: 100%;
+}
+.recap_profil{
+  border-left: 2px solid black;
+  padding-left : 20px;
+  width : 70%;
+}
+
+.options_profil{
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  width : 20%;
+
+}
+
+.option_profil input{
+  width : 250px;
+  height : 50px;
+  margin-bottom: 10px;
+}
+
+
+
+
+
+/* PAGE FORMULAIRE */
+#champs_obligatoires{
+  margin-top : 10px;
+  margin-left : 20%;
+}
+.champs_form {
+  width : 100%;
+  padding-left : 10px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top : 30px;
+}
+.label_form{
+  width : 40%;
+  text-align: right;
+}
+.champ_form{
+
+  padding-left : 15px;
+  width: 50%;
+}
+
+
+/* style Envoyer - Annuler */
+.bouton_form{
+  margin-top : 30px;
+  margin-bottom : 25px;
+  text-align: center;
+}
+/* STYLE DES INPUT TEXT, EMAIL, NUMBER et DATE */
+input[type=text], input[type=email], input[type=number], input[type=date], input[type=password]{
+  width : 350px;
+  border: 1px solid #ccc;
+  border-radius : 5px;
+  padding : 5px;
+}
+
+
+/* STYLE DES INPUT TEXT, EMAIL, NUMBER et DATE AU SURVOL */
+input[type=text]:hover, input[type=email]:hover, input[type=number]:hover, input[type=date]:hover, input[type=password]:hover{
+  border: 1px solid #6f42c1;
+}
+
+/* Mettre le message d'erreur de chaque champ au même padding que leur champ */
+.message_erreur{
+  padding : 5px;
+
+}
+/* Style des labels mais pas ceux de civilité (Civilite :, Mr,Mme) */
+.labelprofil{
+  padding: 5px 5px 5px 0px;
+}
+/* Style du label Civilité : */
+.labelciv2{
+}
+
+/* ADAPTATION DU FORMULAIRE SELON LES TAILLES D'ECRAN */
+/* A partir d'une certaine taille, bootstrap fait basculer les input donc je redécale les label sur la gauche sinon ils restent tout à droite alors que le champ est en bas et ça ressemble à rien */
+@media (max-width: 991px){
+  .labelprofil{
+    padding: 5px 5px 5px 0px;
+    float: left;
+  }
+  .labelciv2{
+    float: left;
+  }
+}
+/* Quand l'écran devient vraiment petit je mets une taille auto aux input et j'enlève le * et le * Champs obligatoires sinon les étoiles s'affichent en bas et c'est vraiment moche */
+@media (max-width: 406px){
+  input[type=text], input[type=email], input[type=number], input[type=date], input[type=password]{
+    width : auto;
+    border: 1px solid #ccc;
+    border-radius : 5px;
+    padding : 5px;
+  }
+  .etoile, #champs_obligatoires{
+    display : none;
+  }
+}
+
+/* PAGE MODIFIER MOT DE PASSE */
+
+.unhide_mdp{
+  padding: 5px 5px 5px 0px;
+  width : 24px;
+  position: relative;
+  z-index: 2;
+  margin-left: -30px;
+  margin-bottom : 4px;
+}
+.labelmdp{
+  padding: 5px 5px 5px 0px;
+  display:inline-block;
+  float: right;
+}
+@media (max-width: 991px){
+  .labelmdp{
+    padding: 5px 5px 5px 0px;
+    display:inline-block;
+    float: left;
+  }
+}
+
+/* Mesage erreur côté serveur + JS */
+#error_datasrv, #error_datajs{
+  background-color : rgba(236, 74, 89, 0.5);
+  color : white;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+}
+/* Message de réussite d'update, ou création etc côté SERVEUR */
+#success_datasrv{
+  background-color: rgba(142,244,224, 1);
+  color : white;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+}
+/* Design des infubulles des formulaires */
+.fa-question-circle{
+  color : black;
+  padding-left : 5px;
+  position : relative;
+  cursor : pointer;
+}
+.fa-question-circle:hover::after{
+  content : attr(data-info);
+  position : absolute;
+  left : 0px;
+  top : 20px;
+  min-width : 250px;
+  border-radius : 10px;
+  background-color : rgba(0, 0, 0, 0.7);
+  padding : 10px;
+  color : #fff;
+  font-size : 16px;
+  z-index : 1;
+}
+
+/* BUDGET SOUS-CATEGORIES SORTIES */
+.tabSousCat{
+  width : 100%;
+  margin-top : 15px;
+}
+.rowTabSousCat{
+  display: flex;
+  width: 100%;
+  align-content: center;
+  border-top : 1px solid black;
+  padding-top : 15px;
+  padding-bottom: 15px;
+}
+.dataTabSousCat:first-child{
+  display: flex;
+  width : 20%;
+  justify-content: flex-end;
+}
+.dataTabSousCat:nth-child(0n+3){
+  display: flex;
+  width : 20%;
+  justify-content: flex-start;
+}
+.dataTabSousCat:nth-child(0n+2){
+  display: flex;
+  width : 60%;
+  justify-content: center;
+}
+thead .rowTabSousCat{
+  background-color: grey;
+}
+
+/* PAGE OPERATIONS */
+#operations{
+  width: 100%;
+  margin-top : 15px;
+  display: flex;
+}
+/* listing opérations */
+#listingOperations{
+  width : 35%;
+  height : 495px;
+  overflow: auto;
+}
+.itemOperations{
+  width : 100%;
+  display: flex;
+  justify-content: center;
+}
+.operation{
+  width : 95%;
+  display: flex;
+  justify-content: space-between;
+  border-bottom : 1px solid #EBEFF5;
+  padding : 15px 10px 15px 10px;
+  flex-wrap: wrap;
+}
+.itemOperations:hover{
+  background-color: #F7F9FC;
+  cursor: pointer;
+}
+.itemOperations.selected{
+  background-color: #F5F6FB;
+}
+.dateItemOperations{
+  width : 100%;
+  background-color : #E1E5F1;
+  color : #7991B3;
+  text-align: center;
+  font-size: 14px;
+  padding-top : 5px;
+  padding-bottom : 5px;
+}
+.nullOperations{
+  width :100%;
+  text-align: center;
+}
+
+/* détail operation */
+#detailOperations{
+  width: 65%;
+  border-left : 1px solid #EBEFF5;
+  box-shadow:-8px 0 8px -10px black;
+}
+.detailOp{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-left : 15px;
+  padding-right : 15px;
+  flex-wrap: wrap;
+}
+.icoSousCat{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom : 30px;
+}
+.montantOp{
+  width : 100%;
+  display: flex;
+  justify-content: center;
+  font-size: 35px;
+  font-weight: bolder;
+}
+.montantOp img{
+  height : 32px;
+  align-self: center;
+  margin-left : 15px;
+
+}
+.nomOp{
+  width : 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom : 15px;
+}
+.tiersOp{
+  width : 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom : 15px;
+  color : #7991B3;
+}
+.dateCompteOp{
+  width : 50%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  margin-bottom : 15px;
+  flex-wrap: wrap;
+}
+.dateCompteOp div{
+  display: flex;
+  flex-direction: column;
+}
+.dateCompteOp div span:nth-child(2n+0){
+  font-weight: bold;
+}
+.dateCompteOp div:nth-child(0n+1){
+  width : 50%;
+  text-align: right;
+  padding-right : 10px;
+  border-right : 1px solid #EBEFF5;
+}
+.dateCompteOp div:nth-child(0n+2){
+  width : 50%;
+  text-align: left;
+  padding-left : 10px;
+}
+.infosupOp{
+  width : 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom : 15px;
+  color : #6c757d;
+  font-style: italic;
+}
+.catFreqMoyOp{
+  width : 60%;
+  display: flex;
+  margin : auto;
+  margin-bottom : 15px;
+  margin-top : 15px;
+  border-top : 1px solid #EBEFF5;
+  padding-top : 25px;
+}
+.catFreqMoyOp div{
+  width : 33.33333333%;
+  text-align: center;
+}
+.catFreqMoyOp div p:nth-child(2n+0){
+  font-weight: bold;
+}
+.editDeleteOp{
+  width : 20%;
+  margin : auto;
+  display: flex;
+  justify-content: space-around;
+  margin-bottom : 15px;
+  margin-top : 50px;
+}
+
+/*  DEUX BOUTONS LARGES POUR DEPENSES ET ENTREES */
+.btngroup input{
+  width: 50%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+/* CHANGEMENT DE COULEUR AU SURVOL DES BOUTONS DEPENSES ET ENTREES */
+.btngroup input:hover{
+  background-color: aquamarine;
+}
+
+/*  MAYBE USELESS  */
+/* Redimension et ajustement de l'icone "retour page précédente" */
+.icoreturn {
+  width: 32px;
+  margin-top: 15px;
+  margin-left: 15px;
+}
