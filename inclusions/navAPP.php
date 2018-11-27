@@ -1,7 +1,7 @@
 <nav id="navAPP">
     <ul>
-        <li class="navAPPli1">Comptes</li>
-        <li class="navAPPli2">Opérations</li>
+        <li class="navAPPli1"><a href="http://localhost/site_projet/app/compte/Accueil.php">Compte</a></li>
+        <li class="navAPPli2"><a href="http://localhost/site_projet/app/historique/historique_global.php">Opérations</a></li>
         <li class="navAPPli3">Budget</li>
         <li class="navAPPli4">Simuler budget</li>
         <li class="navAPPli5">Virement</li>

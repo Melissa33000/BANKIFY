@@ -11,11 +11,11 @@ function verif_nom(){
 
     if (!nomOk){
         erreur_contenu.textContent = "Nom invalide";
-        $('#error_nom_contenu').append("<i class=\"far fa-question-circle\" data-info=\"Ce champ ne peut commencer et terminer que par une lettre et il ne peut contenir que les caractères spéciaux - ' (espace)\" id=\"icoInfo\"></i>");
+        $('#error_nom_contenu').append("<i class=\"far fa-question-circle\" data-info=\"Ce champ ne peut commencer et terminer que par une lettre et il ne peut contenir que les caractères spéciaux : -'(espace)\" id=\"icoInfo\"></i>");
         erreur_contenu.style.color = "#D21929";
         if (nom.length >= 50) {
             erreur_contenu.textContent = "Nom invalide & Caractères max : 50";
-            $('#error_nom_contenu').append("<i class=\"far fa-question-circle\" data-info=\"Ce champ ne peut commencer et terminer que par une lettre, il ne peut contenir que les caractères spéciaux - ' (espace) et vous êtes limités à 50 caractères\" id=\"icoInfo\"></i>");
+            $('#error_nom_contenu').append("<i class=\"far fa-question-circle\" data-info=\"Ce champ ne peut commencer et terminer que par une lettre, il ne peut contenir que les caractères spéciaux : -'(espace) et vous êtes limités à 50 caractères\" id=\"icoInfo\"></i>");
         }
         // Vu que c'est un champ obligatoire j'ai rajouté ce message s'il rempli et puis efface.
         if(nom == ""){
@@ -51,11 +51,11 @@ function verif_prenom(){
     var prenomOk = reg.test(prenom);
     if(!prenomOk) {
         erreur_contenu.textContent = "Prénom invalide";
-        $('#error_prenom_contenu').append("<i class=\"far fa-question-circle\" data-info=\"Ce champ ne peut commencer et terminer que par une lettre et il ne peut contenir que les caractères spéciaux - ' (espace)\" id=\"icoInfo\"></i>");
+        $('#error_prenom_contenu').append("<i class=\"far fa-question-circle\" data-info=\"Ce champ ne peut commencer et terminer que par une lettre et il ne peut contenir que les caractères spéciaux : -'(espace)\" id=\"icoInfo\"></i>");
         erreur_contenu.style.color = "#D21929";
         if (prenom.length >= 50) {
             erreur_contenu.textContent = "Prénom invalide & Caractères max : 50";
-            $('#error_prenom_contenu').append("<i class=\"far fa-question-circle\" data-info=\"Ce champ ne peut commencer et terminer que par une lettre, il ne peut contenir que les caractères spéciaux - ' (espace) et vous êtes limités à 50 caractères\" id=\"icoInfo\"></i>");
+            $('#error_prenom_contenu').append("<i class=\"far fa-question-circle\" data-info=\"Ce champ ne peut commencer et terminer que par une lettre, il ne peut contenir que les caractères spéciaux : -'(espace) et vous êtes limités à 50 caractères\" id=\"icoInfo\"></i>");
         }
         if(prenom == ""){
             erreur_contenu.textContent = "Prénom obligatoire";
@@ -88,11 +88,11 @@ function verif_ville(){
     var villeOk = reg.test(ville);
     if (!villeOk){
         erreur_contenu.textContent = "Ville invalide";
-        $('#error_ville_contenu').append("<i class=\"far fa-question-circle\" data-info=\"Ce champ ne peut commencer et terminer que par une lettre et il ne peut contenir que les caractères spéciaux - ' (espace)\" id=\"icoInfo\"></i>");
+        $('#error_ville_contenu').append("<i class=\"far fa-question-circle\" data-info=\"Ce champ ne peut commencer et terminer que par une lettre et il ne peut contenir que les caractères spéciaux : -'(espace)\" id=\"icoInfo\"></i>");
         erreur_contenu.style.color = "#D21929";
         if (ville.length >= 50) {
             erreur_contenu.textContent = "Ville invalide & Caractères max : 50";
-            $('#error_ville_contenu').append("<i class=\"far fa-question-circle\" data-info=\"Ce champ ne peut commencer et terminer que par une lettre, il ne peut contenir que les caractères spéciaux - ' (espace) et vous êtes limités à 50 caractères\" id=\"icoInfo\"></i>");
+            $('#error_ville_contenu').append("<i class=\"far fa-question-circle\" data-info=\"Ce champ ne peut commencer et terminer que par une lettre, il ne peut contenir que les caractères spéciaux : -'(espace) et vous êtes limités à 50 caractères\" id=\"icoInfo\"></i>");
         }
         // Je rajoute cette condition car le champ n'étant pas obligatoire je ne veux pas qu'il m'affiche un message d'erreur
         if(ville == ""){
@@ -125,11 +125,11 @@ function verif_pays(){
 
     if (!paysOk){
         erreur_contenu.textContent = "Pays invalide";
-        $('#error_pays_contenu').append("<i class=\"far fa-question-circle\" data-info=\"Ce champ ne peut commencer et terminer que par une lettre et il ne peut contenir que les caractères spéciaux - ' (espace)\" id=\"icoInfo\"></i>");
+        $('#error_pays_contenu').append("<i class=\"far fa-question-circle\" data-info=\"Ce champ ne peut commencer et terminer que par une lettre et il ne peut contenir que les caractères spéciaux : -'(espace)\" id=\"icoInfo\"></i>");
         erreur_contenu.style.color = "#D21929";
         if (pays.length >= 50) {
             erreur_contenu.textContent = "Pays invalide & Caractères max : 50";
-            $('#error_pays_contenu').append("<i class=\"far fa-question-circle\" data-info=\"Ce champ ne peut commencer et terminer que par une lettre, il ne peut contenir que les caractères spéciaux - ' (espace) et vous êtes limités à 50 caractères\" id=\"icoInfo\"></i>");
+            $('#error_pays_contenu').append("<i class=\"far fa-question-circle\" data-info=\"Ce champ ne peut commencer et terminer que par une lettre, il ne peut contenir que les caractères spéciaux : -'(espace) et vous êtes limités à 50 caractères\" id=\"icoInfo\"></i>");
         }
         if(pays == ""){
             erreur_contenu.textContent = "";
@@ -222,18 +222,16 @@ function verif_adresse(){
     // On veut vérifier que l'adresse respecte différents critère :
     // Elle ne peut commencer que par un chiffre ou une lettre majuscule ou minuscule ou tout accent minuscule ou majuscule
     // Ensuite elle ne peut contenir que des chiffres, des lettres minuscules ou majuscule, - , ( ) " & \ / ' ° et tous les accents possibles en minuscules et majuscules
-    // Enfin elle ne peut se terminer que par un chiffre, une lettre minuscule ou majuscule ) ou tout accent minuscule ou majuscule
-    var reg = /^[A-Za-z0-9áàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ]?[A-Za-z0-9, "'\(\)\\\/\-&°áàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ]*[A-Za-z0-9\)áàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ]$/g;
+    // Enfin elle ne peut se terminer que par un chiffre, une lettre minuscule ou majuscule ) " ' ou tout accent minuscule ou majuscule
+    var reg = /^[A-Za-z0-9áàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ]?[A-Za-z0-9, "'\(\)\\\/\-&°áàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ]*[A-Za-z0-9"'\)áàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ]$/g;
     var adresseOk = reg.test(adresse);
 
     if(!adresseOk){
         erreur_contenu.textContent = "Adresse invalide";
-        var info = "Ce champ ne peut commencer que par une lettre ou chiffre, terminer par une lettre, un chiffre ou le caractère spécial ) et il ne peut contenir que les caractères spéciaux - , ( ) &  / ° \t&quot; ' (espace)";
-        $('#error_adresse_contenu').append("<i class=\"far fa-question-circle\" data-info=\""+info+"\" id=\"icoInfo\"></i>");
+        
         erreur_contenu.style.color = "#D21929";
         if(adresse.length >= 100){
             erreur_contenu.textContent = "Adresse invalide & Caractères max : 100";
-            $('#error_adresse_contenu').append("<i class=\"far fa-question-circle\" data-info=\""+info+" et vous êtes limités à 100 caractères\" id=\"icoInfo\"></i>");
         }
         if(adresse == ""){
             erreur_contenu.textContent = "";
@@ -243,13 +241,11 @@ function verif_adresse(){
     }
     if(adresse.length > 100){
         erreur_contenu.textContent = "Caractères max : 100";
-        $('#error_adresse_contenu').append("<i class=\"far fa-question-circle\" data-info=\"Ce champ ne peut pas faire plus de 100 caractères\" id=\"icoInfo\"></i>");
         erreur_contenu.style.color = "#D21929";
         return false;
     }
     if(adresse.length == 100){
         erreur_contenu.textContent = "Caractères max : 100";
-        $('#error_adresse_contenu').append("<i class=\"far fa-question-circle\" data-info=\"Message à titre informatif : Vous ne pouvez pas renseigner plus de 100 caractères pour ce champ\" id=\"icoInfo\"></i>");
         erreur_contenu.style.color = "#000";
         return true;
     }
@@ -264,12 +260,9 @@ function verif_adresse2(){
     var adresseOk = reg.test(adresse);
     if(!adresseOk){
         erreur_contenu.textContent = "Adresse invalide";
-        var info = "Ce champ ne peut commencer que par une lettre ou chiffre, terminer par une lettre, un chiffre ou le caractère spécial ) et il ne peut contenir que les caractères spéciaux - , ( ) &  / ° \t&quot; ' (espace)";
-        $('#error_adresse2_contenu').append("<i class=\"far fa-question-circle\" data-info=\""+info+"\" id=\"icoInfo\"></i>");
         erreur_contenu.style.color = "#D21929";
         if(adresse.length >= 100){
             erreur_contenu.textContent = "Adresse invalide & Caractères max : 100";
-            $('#error_adresse2_contenu').append("<i class=\"far fa-question-circle\" data-info=\""+info+" et vous êtes limités à 100 caractères\" id=\"icoInfo\"></i>");
         }
         if(adresse == ""){
             erreur_contenu.textContent = "";
@@ -279,13 +272,11 @@ function verif_adresse2(){
     }
     if(adresse.length > 100){
         erreur_contenu.textContent = "Caractères max : 100";
-        $('#error_adresse2_contenu').append("<i class=\"far fa-question-circle\" data-info=\"Ce champ ne peut pas faire plus de 100 caractères\" id=\"icoInfo\"></i>");
         erreur_contenu.style.color = "#D21929";
         return false;
     }
     if(adresse.length == 100){
         erreur_contenu.textContent = "Caractères max : 100";
-        $('#error_adresse2_contenu').append("<i class=\"far fa-question-circle\" data-info=\"Message à titre informatif : Vous ne pouvez pas renseigner plus de 100 caractères pour ce champ\" id=\"icoInfo\"></i>");
         erreur_contenu.style.color = "#000";
         return true;
     }
@@ -294,18 +285,18 @@ function verif_adresse2(){
 }
 
 function verif_formulaire_profil() {
+    
     //PAGE PROFIL
-    // On supprime le message du mail obligatoire pour ne pas avoir un cumul inutile
-    $('#error_datasrv').html('');
+    
     var champ_civilite_mr = document.getElementById("civilite_mr");
     var champ_civilite_mme = document.getElementById("civilite_mme");
     if (!champ_civilite_mr.checked && !champ_civilite_mme.checked) {
-        $('#error_datajs').html('Le champ civilité est obligatoire !');
+        alert("Le champ civilité est obligatoire !");
         return false;
     }
     var champ_nom = document.getElementById("nom");
     if (champ_nom.value.trim() === "") {
-        $('#error_datajs').html('Le champ nom est obligatoire !');
+        alert("Le champ nom est obligatoire !");
         champ_nom.style.borderColor = "#D21929";
         champ_nom.focus();
         return false;
@@ -315,7 +306,7 @@ function verif_formulaire_profil() {
 
     var champ_prenom = document.getElementById("prenom");
     if (champ_prenom.value.trim() === "") {
-        $('#error_datajs').html('Le champ prénom est obligatoire !');
+        alert("Le champ prénom est obligatoire !");
         champ_prenom.style.borderColor = "#D21929";
         return false;
     }else{
@@ -323,7 +314,7 @@ function verif_formulaire_profil() {
     }
     var champ_dateN = document.getElementById("dateN");
     if (!champ_dateN.value) {
-        $('#error_datajs').html('Le champ date de naissance est obligatoire !');
+        alert("Le champ date de naissance est obligatoire !");
         champ_dateN.style.borderColor = "#D21929";
         return false;
     }else{
@@ -331,7 +322,7 @@ function verif_formulaire_profil() {
     }
     var champ_email = document.getElementById("email");
     if (champ_email.value.trim()=== "") {
-        $('#error_datajs').html('Le champ e-mail est obligatoire !');
+        alert("Le champ e-mail est obligatoire !");
         champ_email.style.borderColor = "#D21929";
         champ_email.focus();
         return false;
@@ -339,21 +330,24 @@ function verif_formulaire_profil() {
         champ_email.style.borderColor = "";
     }
     if (!verif_nom() || !verif_prenom() || !verif_ville() || !verif_pays() || !verif_mail() || !verif_adresse() || !verif_adresse2()) {
-        $('#error_datajs').html('Veuillez vérifier les champs invalides !');
+        alert("Veuillez corriger les champs invalides");
         return false;
     }
     return true;
 }
 
+// TODO Fonction Qui développe les infos des erreurs sur le formulaire
+function error_info() {
+    var info = document.getElementById("info_erreur");
+
+}
+
 //PAGE MOT DE PASSE
 function verif_formulaire_mdp() {
-    // On supprime le message du mail obligatoire pour ne pas avoir un cumul inutile
-    $('#error_datasrv').html('');
     var ok = true;
     $('input[type=password]').each(function(){
         if($(this).val().trim()===""){
-            $('#error_datajs').html('Veuillez '+$(this).data('libelle'));
-            //alert('Veuillez '+$(this).data('libelle'));
+            alert('Veuillez '+$(this).data('libelle'));
             $(this).focus();
             // Pour ne pas que ça return true pour la fonction et donc que ça valide le formulaire !
             ok = false;
@@ -365,8 +359,7 @@ function verif_formulaire_mdp() {
     // Pour ne pas exécuter les autres if si le premier est déjà faux
     if(!ok) return false;
     if($('#mdp').val() === $('#new_mdp').val()){
-        $('#error_datajs').html('Vous ne pouvez pas réutiliser le même mot de passe !');
-        //alert("Vous ne pouvez pas réutiliser le même mot de passe !");
+        alert("Vous ne pouvez pas réutiliser le même mot de passe !");
         $('input[type=password]').each(function(){
             $(this).val('');
         });
@@ -375,8 +368,7 @@ function verif_formulaire_mdp() {
     //console.log('Nouveau mdp différent de l\'ancien : '+ok);
     if(!ok) return false;
     if($('#new_mdp').val() != $('#new_mdp2').val()){
-        $('#error_datajs').html('Vos mots de passe ne se correspondent pas !');
-        //alert("Vos mots de passe ne se correspondent pas !");
+        alert("Vos mots de passe ne se correspondent pas !");
         $('input[type=password]').each(function(){
             $(this).val('');
         });
@@ -385,8 +377,7 @@ function verif_formulaire_mdp() {
     //console.log('Les mdp se correspondent : '+ok);
     if(!ok) return false;
     if(!verif_complexity_mdp()){
-        $('#error_datajs').html('Veuillez vérifier la complexité de votre mot de passe !');
-        //alert("Veuillez vérifier la complexité de votre mot de passe");
+        alert("Veuillez vérifier la complexité de votre mot de passe");
         ok = false;
     }
     //console.log('La complexité est respectée : '+ok);
@@ -434,6 +425,8 @@ function verif_formulaire_mdp() {
     return true;*/
 }
 
+
+
 // Mot de passe : minimum 6 caractères + 1 Maj + 1 chiffre + 1 caractère spécial.
 function verif_complexity_mdp(){
     var mdp = document.getElementById("new_mdp").value;
@@ -480,19 +473,18 @@ function verif_complexity_mdp(){
         return false;
     }
     if(!specialOk){
-        erreur_contenu.textContent = "Doit contenir au moins un caractère spécial de cette liste : + - ? ! * @ $ % & _";
+        erreur_contenu.textContent = "Doit contenir au moins un caractère spécial de cette liste : +-?!*@$%&_";
         erreur_contenu.style.color = "#D21929";
         return false;
     }
 
     if(contenuPasOk){
-        erreur_contenu.textContent = "Votre mot de passe contient des caractères non autorisés. Sont autorisés : + - ? ! * @ $ % & _";
+        erreur_contenu.textContent = "Votre mot de passe contient des caractères non autorisés. Sont autorisés : +-?!*@$%&_";
         erreur_contenu.style.color = "#D21929";
         return false;
     }
     if(mdp.length == 16){
         erreur_contenu.textContent = "Longueur max : 16";
-        $('#error_newmdp_contenu').append("<i class=\"far fa-question-circle\" data-info=\"Message à titre informatif : Vous ne pouvez pas renseigner plus de 16 caractères pour ce champ\" id=\"icoInfo\"></i>");
         erreur_contenu.style.color = "#000";
         return true;
     }
@@ -507,55 +499,52 @@ $(document).ready(function(){
     $('.itemBudgetCat').each(function () {
         var idCat = $(this).data('id');
         if(idCat === 1){
-            $('.itemBudgetCat[data-id='+idCat+']').css('background-color', '#C294C2');
+            $('.itemBudgetCat[data-id='+idCat+']').css('background-color', '#D68FC1');
         }
         if(idCat === 2){
-            $('.itemBudgetCat[data-id='+idCat+']').css('background-color', '#FE3366');
+            $('.itemBudgetCat[data-id='+idCat+']').css('background-color', '#FF0062');
         }
         if(idCat === 3){
-            $('.itemBudgetCat[data-id='+idCat+']').css('background-color', '#FFB200');
+            $('.itemBudgetCat[data-id='+idCat+']').css('background-color', '#ffad00');
         }
         if(idCat === 4){
-            $('.itemBudgetCat[data-id='+idCat+']').css('background-color', '#00CBCB');
+            $('.itemBudgetCat[data-id='+idCat+']').css('background-color', '#0AC8C5');
         }
         if(idCat === 5){
-            $('.itemBudgetCat[data-id='+idCat+']').css('background-color', '#B78667');
+            $('.itemBudgetCat[data-id='+idCat+']').css('background-color', '#4B2D0F');
         }
         if(idCat === 6){
-            $('.itemBudgetCat[data-id='+idCat+']').css('background-color', '#A0A0FF');
+            $('.itemBudgetCat[data-id='+idCat+']').css('background-color', '#FF7300');
         }
         if(idCat === 7){
-            $('.itemBudgetCat[data-id='+idCat+']').css('background-color', '#BECAE0');
+            $('.itemBudgetCat[data-id='+idCat+']').css('background-color', '#AAAAAA');
         }
         if(idCat === 8){
-            $('.itemBudgetCat[data-id='+idCat+']').css('background-color', '#FF87C2');
+            $('.itemBudgetCat[data-id='+idCat+']').css('background-color', '#F63D81');
         }
         if(idCat === 9){
-            $('.itemBudgetCat[data-id='+idCat+']').css('background-color', '#FC5D6A');
+            $('.itemBudgetCat[data-id='+idCat+']').css('background-color', '#FF0000');
         }
         if(idCat === 10){
-            $('.itemBudgetCat[data-id='+idCat+']').css('background-color', '#FF7300');
+            $('.itemBudgetCat[data-id='+idCat+']').css('background-color', '#FF87C4');
         }
         if(idCat === 11){
             $('.itemBudgetCat[data-id='+idCat+']').css('background-color', '#89CDF5');
         }
         if(idCat === 12){
-            $('.itemBudgetCat[data-id='+idCat+']').css('background-color', '#9B59B6');
+            $('.itemBudgetCat[data-id='+idCat+']').css('background-color', '#916ABD');
         }
         if(idCat === 13){
-            $('.itemBudgetCat[data-id='+idCat+']').css('background-color', '#18C95D');
+            $('.itemBudgetCat[data-id='+idCat+']').css('background-color', '#55D989');
         }
         if(idCat === 14){
-            $('.itemBudgetCat[data-id='+idCat+']').css('background-color', '#677FE0');
+            $('.itemBudgetCat[data-id='+idCat+']').css('background-color', '#517EF0');
         }
         if(idCat === 15){
             $('.itemBudgetCat[data-id='+idCat+']').css('background-color', '#FFF700');
         }
         if(idCat === 16){
             $('.itemBudgetCat[data-id='+idCat+']').css('background-color', '#80FF00');
-        }
-        if(idCat > 10000){
-            $('.itemBudgetCat[data-id='+idCat+']').css('background-color', '#54DE3D');
         }
     });
 
@@ -573,8 +562,6 @@ $(document).ready(function(){
                 $(this).css('margin', '0px');
                 $(this).css('text-shadow', '#000 2px 2px 2px');
                 $(this).css('box-shadow', '5px 0px 3px black');
-                //$(this).css('border-top-right-radius', '20px');
-                //$(this).css('border-bottom-right-radius', '20px');
                 // Faire ressortir le menu (on l'agrandit avec with et on le fait se placer par dessus la page (sinon on a les écritures de la page par dessus et c'est moche)
                 $(this).css('width', '150%');
                 $(this).css('z-index', '1');
@@ -584,8 +571,6 @@ $(document).ready(function(){
                     $(this).css('margin', 'initial');
                     $(this).css('text-shadow', 'initial');
                     $(this).css('box-shadow', 'initial');
-                    //$(this).css('border-top-right-radius', '0px');
-                    //$(this).css('border-bottom-right-radius', '0px');
                     $(this).css('width', 'initial');
                     $(this).css('z-index', 'initial');
                 });
@@ -729,28 +714,26 @@ $(document).ready(function(){
 // REDIRECTION SANS LIEN !!!! (rend tout le li cliquable)
 
 $('#navAPP ul li').click(function(){
-    let currentNavAPPLi = $(this).attr("class");
-    // Il y a un || class ="... selected" car pour ne pas que la couleur de l'onglet s'en aille à cause du hover, j'ai rejoué la class seleted. Donc si on veut pouvoir cliquer sur l'onglet en cours et être redirigé
-    //Sur la page en cours (un peu useless mais bon) ON PEUT.
-    if((currentNavAPPLi === "navAPPli1") || (currentNavAPPLi === "navAPPli1 selected")){
+    var currentNavAPPLi = $(this).attr("class");
+    if(currentNavAPPLi == "navAPPli1"){
         window.location.replace("#");
     }
-    if((currentNavAPPLi === "navAPPli2") || (currentNavAPPLi === "navAPPli2 selected")){
+    if(currentNavAPPLi == "navAPPli2"){
         window.location.replace("#");
     }
-    if((currentNavAPPLi === "navAPPli3") || (currentNavAPPLi === "navAPPli3 selected")){
+    if(currentNavAPPLi == "navAPPli3"){
         window.location.replace("#");
     }
-    if((currentNavAPPLi === "navAPPli4") || (currentNavAPPLi === "navAPPli4 selected")){
-        window.location.replace("http://localhost/bankify/app/budget/sorties.php?id=2");
+    if(currentNavAPPLi == "navAPPli4"){
+        window.location.replace("http://localhost/bankify/app/budget/sortie2.php?id=2");
     }
-    if((currentNavAPPLi === "navAPPli5") || (currentNavAPPLi === "navAPPli5 selected")){
+    if(currentNavAPPLi == "navAPPli5"){
         window.location.replace("#");
     }
-    if((currentNavAPPLi === "navAPPli6") || (currentNavAPPLi === "navAPPli6 selected")){
+    if(currentNavAPPLi == "navAPPli6"){
         window.location.replace("#");
     }
-    if((currentNavAPPLi === "navAPPli7") || (currentNavAPPLi === "navAPPli7 selected")){
+    if(currentNavAPPLi == "navAPPli7"){
         window.location.replace("#");
     }
 
@@ -769,144 +752,4 @@ $('.unhide_mdp').click(function(){
     }else{
         input.attr("type", "password");
     }
-});
-
-
-// PAGE BUDGET
-/* Rendre les catégories cliquables
- * Lien vers sous-catégories pour les sorties et
-  * lien vers opérations pour les revenus (car elles n'ont pas de sous-catégories) */
-// TODO Trouver un moyen de récupérer l'id du client sur cette page mais aussi sur toutes celles du site
-$('.itemBudgetCat').click(function () {
-    let idCat = $(this).data("id");
-    if(idCat < 10000){
-        window.location.replace("souscategories.php?id=2&idCat="+idCat+"");
-    }else{
-        // En fait ici on est dans un cas "spécial" ou l'id de la catégorie est aussi l'ic de la sous catégorie mais on doit le renseigner car la
-        // page operations s'attend à recevoir et un id cat et un id sous cat (à cause des sorties qui ont une sous-catégorie)
-        window.location.replace("operations.php?id=2&idCat="+idCat+"&idSousCat="+idCat+"");
-    }
-});
-/* changer le curseur en pointeur en hover */
-$('.itemBudgetCat').mouseover(function () {
-    $(this).css("cursor", "pointer");
-});
-
-/* Hover sur le tableau des sous-catégories selon la couleur de la catégorie */
-$('tbody .rowTabSousCat').mouseover(function(){
-    $(this).css("cursor", "pointer");
-    let idCat = $(this).data("idcat");
-    if(idCat === 1){
-        $(this).css("background-color", "#C294C2");
-    }
-    if(idCat === 2){
-        $(this).css("background-color", "#FE3366");
-    }
-    if(idCat === 3){
-        $(this).css("background-color", "#FFB200");
-    }
-    if(idCat === 4){
-        $(this).css("background-color", "#00CBCB");
-    }
-    if(idCat === 5){
-        $(this).css("background-color", "#B78667");
-    }
-    if(idCat === 6){
-        $(this).css("background-color", "#A0A0FF");
-    }
-    if(idCat === 7){
-        $(this).css("background-color", "#BECAE0");
-    }
-    if(idCat === 8){
-        $(this).css("background-color", "#FF87C2");
-    }
-    if(idCat === 9){
-        $(this).css("background-color", "#FC5D6A");
-    }
-    if(idCat === 10){
-        $(this).css("background-color", "#FF7300");
-    }
-    if(idCat === 11){
-        $(this).css("background-color", "#89CDF5");
-    }
-    if(idCat === 12){
-        $(this).css("background-color", "#9B59B6");
-    }
-    if(idCat === 13){
-        $(this).css("background-color", "#18C95D");
-    }
-    if(idCat === 14){
-        $(this).css("background-color", "#677FE0");
-    }
-    if(idCat === 15){
-        $(this).css("background-color", "#FFF700");
-    }
-    if(idCat === 16){
-        $(this).css("background-color", "#80FF00");
-    }
-});
-/* Réinitialisation de la couleur quand on n'est pas en hover */
-$('tbody .rowTabSousCat').mouseout(function(){
-    $(this).css("background-color", "initial");
-});
-/* Rendre les sous-catégories cliquables
-lien vers les opérations
- */
-$('tbody .rowTabSousCat').click(function () {
-    let idSousCat = $(this).data("idsouscat");
-    let idCat = $(this).data("idcat");
-    window.location.replace("operations.php?id=2&idCat="+idCat+"&idSousCat="+idSousCat+"");
-});
-
-/* Opérations cliquables + AJAX */
-
-function getXHR(){
-    var xhr;
-    if(window.XMLHttpRequest)
-        xhr = new XMLHttpRequest();
-    else
-        xhr = new ActiveXObject("Microsoft.XMLHTTP");
-    return xhr;
-}
-// On fait apparaitre le AJAX + On essaie de cliquer sur une ligne et lui donner une couleur + l'enlever si on recliquer et faire disparaitre l'AJAX
-let previousOp = 0;
-$('.itemOperations').click(function () {
-    let idOp = $(this).data("idop");
-    // On enlève la couleur de la ligne précédente pour ne pas colorer toutes les lignes qu'on sélectionne !!
-    $('.itemOperations[data-idop='+previousOp+']').attr("class","itemOperations");
-    $(this).addClass("selected");
-    let xhr = getXHR();
-
-    if(idOp === previousOp){
-        $(this).attr("class","itemOperations");
-        $('#detailOperations').html('');
-        idOp = 0;
-    }
-
-    xhr.onreadystatechange = function () {
-        if(xhr.readyState === 4){
-            let operation = JSON.parse(xhr.responseText);
-
-            let idSousCat = operation.idSousCat;
-            let montant = operation.montant;
-            let devise = operation.symbole;
-            let idmoyenpaiement = operation.idMoyenPaiement;
-            let moyenPaiement = operation.moyenpaiement;
-            let nom = operation.nom;
-            let tiers = operation.tiers;
-            let date = operation.date;
-            let compte = operation.compte;
-            let infosup = operation.infosup;
-            let categorie = operation.categorie;
-            let frequence = operation.frequence;
-
-            $('#detailOperations').html('<div class="detailOp"><div class="icoSousCat"><img src="../../images/ico/categories/'+idSousCat+'.png"></div><div class="montantOp">'+montant+''+devise+' </div> <div class="nomOp">'+nom+'</div><div class="tiersOp">'+tiers.toUpperCase()+'</div><div class="dateCompteOp"><div><span>Date</span><span>'+date+'</span></div><div><span>Compte</span><span>'+compte+'</span></div> </div><div class="infosupOp">'+infosup+'</div><div class="catFreqMoyOp"><div><p>Catégorie</p><p>'+categorie+'<p></div><div><p>Fréquence</p><p>'+frequence+'<p></div> <div><p>Moyen de paiement</p><p>'+moyenPaiement+'</p><img src="../../images/ico/moyenpaiement/'+idmoyenpaiement+'.png"></div></div><div class="editDeleteOp"><a href="#"><img src="../../images/ico/edit.png" alt="Editer l\'opération"></a><a href="#"><img src="../../images/ico/delete.png" alt="Supprimer l\'opération"></a></div></div>');
-        }
-    }
-    let idOperation = "id="+idOp+"";
-    xhr.open('POST', 'api.php', true);
-    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=utf-8');
-    xhr.send(idOperation);
-
-    previousOp = idOp;
 });
