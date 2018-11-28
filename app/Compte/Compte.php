@@ -4,9 +4,10 @@
 		private $numero, $nom_compte, $solde_initial, $devise, $id;
 										/* Constructeurs */
 
-		public function __construct($numero ='', $nom_compte = '',$solde_actuel ='', $symbole_devise ='', $id = '', $decouvert_max = ''){
+		public function __construct($numero ='', $nom_compte = '',$solde_initial,$solde_actuel ='', $symbole_devise ='', $id = '', $decouvert_max = ''){
 			$this->numero = $numero;
 			$this->nom_compte = $nom_compte;
+			$this->solde_initial = $solde_initial;
 			$this->solde_actuel = $solde_actuel;
 			$this->symbole_devise = $symbole_devise;
 			$this->id = $id;
@@ -25,6 +26,9 @@
 		}
 		public function getNom_compte(){
 			return $this->nom_compte;
+		}
+		public function getSolde_initial(){
+			return $this->solde_initial;
 		}
 		public function getSolde_actuel(){
 			return $this->solde_actuel;

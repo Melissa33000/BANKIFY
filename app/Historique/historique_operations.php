@@ -19,7 +19,7 @@ if(!empty($_GET) AND isset($_GET['id'])){
         <?php include("../../inclusions/head.php"); ?>
         
         <link href="../../css/style_sirika.css" rel="stylesheet">
-        <link href="../../css/style.css" rel="stylesheet">
+        <link href="../../css/style_Aurélien.css" rel="stylesheet">
     </head>
     <body id="bodyOnglet">
         <!-- HEADER -->
