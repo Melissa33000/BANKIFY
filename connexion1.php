@@ -8,7 +8,7 @@ if(!empty($_POST)){
     $mdp = $_POST['mdp'];
     // Vérification que l'email et le mot de passe soient bien associés au même utilisateur en BDD :
     $queryVerifConnect = 'SELECT id FROM utilisateur WHERE email="'.$email.'" AND mdp="'.$mdp.'"';
-    $resultVerifConnect = $dbConn->query($queryVerifConnect);
+    $resultVerifConnect = $db->query($queryVerifConnect);
     if($resultVerifConnect->execute()){
         $row = $resultVerifConnect->fetchObject();
             if ($row == false) {
@@ -17,8 +17,8 @@ if(!empty($_POST)){
                 // Comme tout est ok, création de la cession de l'utilisateur
                 $_SESSION['utilisateur']=$row->id;
 
-                // L'utilisateur est redirigé vers la page accueil.php
-                header('Location: accueilenattendant.php');
+                // L'utilisateur est redirigé vers la page Accueil.php
+                header('Location: app/Compte/Accueil.php');
                 exit();
             }
         }

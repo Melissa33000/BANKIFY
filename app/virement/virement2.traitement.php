@@ -13,7 +13,7 @@ if(!isset($_POST['montant']) or !is_float($_POST['montant']) or !($_POST['montan
 
 // Récolte des données des 2 comptes
 $SQLQuery = 'SELECT * FROM compte WHERE id_utilisateur = :utilisateuractuel and id= :id_compteemetteur';
-$SQLStatement = $dbConn->prepare($SQLQuery);
+$SQLStatement = $db->prepare($SQLQuery);
 $SQLStatement->bindValue(':utilisateuractuel', $_SESSION['utilisateur']);
 $SQLStatement->bindValue(':id_compteemetteur', $_POST['id_compteemetteur']);
 
@@ -27,7 +27,7 @@ $SQLResultCompteEmetteur = $SQLStatement->fetchObject();
 $SQLStatement->closeCursor();
 
 $SQLQuery = 'SELECT * FROM compte WHERE id_utilisateur = :utilisateuractuel and id= :id_comptebeneficiaire';
-$SQLStatement = $dbConn->prepare($SQLQuery);
+$SQLStatement = $db->prepare($SQLQuery);
 $SQLStatement->bindValue(':utilisateuractuel', $_SESSION['utilisateur']);
 $SQLStatement->bindValue(':id_comptebeneficiaire', $_POST['id_comptebeneficiaire']);
 
@@ -51,7 +51,7 @@ $SQLResultFinalBeneficiaire= $SQLResultCompteBeneficiaire->solde_initial + $_POS
 
 // Actualisation des données en BDD
 $SQLQuery = 'UPDATE compte SET solde_initial =:soldeapresvirement WHERE id_utilisateur = :utilisateuractuel and id= :id_compteemetteur';
-$SQLStatement = $dbConn->prepare($SQLQuery);
+$SQLStatement = $db->prepare($SQLQuery);
 $SQLStatement->bindValue(':utilisateuractuel', $_SESSION['utilisateur']);
 $SQLStatement->bindValue(':id_compteemetteur', $_POST['id_compteemetteur']);
 $SQLStatement->bindValue(':soldeapresvirement', $SQLResultFinalEmetteur);
@@ -64,7 +64,7 @@ if (!$SQLStatement->execute()) {
 $SQLStatement->closeCursor();
 
 $SQLQuery = 'UPDATE compte SET solde_initial =:soldeapresvirement WHERE id_utilisateur = :utilisateuractuel and id= :id_comptebeneficiaire';
-$SQLStatement = $dbConn->prepare($SQLQuery);
+$SQLStatement = $db->prepare($SQLQuery);
 $SQLStatement->bindValue(':utilisateuractuel', $_SESSION['utilisateur']);
 $SQLStatement->bindValue(':id_comptebeneficiaire', $_POST['id_comptebeneficiaire']);
 $SQLStatement->bindValue(':soldeapresvirement', $SQLResultFinalBeneficiaire);
@@ -83,7 +83,7 @@ $SQLStatement->closeCursor();
 
 // Insertion de données dans la table opération
 $SQLQuery = 'INSERT INTO operation(nom, montant, date, infosup, /*id_tiers,*/ id_frequence ,  id_compte, id_type_operation, id_categorie) VALUES (:nomdeloperation, :montant, NOW(), :informationscomplementaires, /*:tiers,*/ :frequence, :compte_emetteur, 2, :categorie)';
-$SQLStatement = $dbConn->prepare($SQLQuery);
+$SQLStatement = $db->prepare($SQLQuery);
 $SQLStatement->bindValue(':nomdeloperation', $_POST['nomdeloperation']);
 $SQLStatement->bindValue(':montant', $_POST['montant']);
 $SQLStatement->bindValue(':informationscomplementaires', $_POST['informationscomplementaires']);
@@ -101,7 +101,7 @@ if (!$SQLStatement->execute()) {
 $SQLStatement->closeCursor();
 
 $SQLQuery = 'INSERT INTO operation(nom, montant, date, infosup, /*id_tiers,*/ id_frequence ,  id_compte, id_type_operation, id_categorie) VALUES (:nomdeloperation, :montant, NOW(), :informationscomplementaires, /*:tiers,*/ :frequence, :compte_beneficiaire, 1 , :categorie)';
-$SQLStatement = $dbConn->prepare($SQLQuery);
+$SQLStatement = $db->prepare($SQLQuery);
 $SQLStatement->bindValue(':nomdeloperation', $_POST['nomdeloperation']);
 $SQLStatement->bindValue(':montant', $_POST['montant']);
 $SQLStatement->bindValue(':informationscomplementaires', $_POST['informationscomplementaires']);

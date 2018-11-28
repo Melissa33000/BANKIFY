@@ -62,40 +62,22 @@ $('#compte_beneficiaire .item').click(function()
 // Vérification après avoir appuyer sur valider qu'un compte bénéficiaire et un compte émetteur sont sélectionnées et que ce ne sont pas les mêmes
 $('#valider').click(function()
 {
-    if (selectedRowEmetteur != null && selectedRowBeneficiaire != null)
-    {
-        if (selectedRowEmetteur.find('input').val() !== selectedRowBeneficiaire.find('input').val()){
-            document.location.href='virement2.php?compteemetteur='+selectedRowEmetteur.find('input').val()+'&comptebeneficiaire='+selectedRowBeneficiaire.find('input').val();
-        }else {
-            alert("Les deux comptes doivent être différents");
-        }
-    }else {
-        alert("Vous devez sélectionner deux comptes");
+    var erreur_contenu = document.getElementById("error_datasrv");
+
+    if (selectedRowEmetteur  == null || selectedRowBeneficiaire  == null){
+        erreur_contenu.textContent = "Vous devez sélectionner deux comptes";
+        erreur_contenu.style.color = "#D21929";
+        return false;
     }
+
+    if (selectedRowEmetteur.find('input').val()  === selectedRowBeneficiaire.find('input').val()  ) {
+        erreur_contenu.textContent = "Les 2 comptes doivent être différents";
+        erreur_contenu.style.color = "#D21929";
+        return false;
+    }
+
+    erreur_contenu.textContent = "";
+    document.location.href='virement2.php?compteemetteur='+selectedRowEmetteur.find('input').val()+'&comptebeneficiaire='+selectedRowBeneficiaire.find('input').val();
+    return true;
 });
 
- /*/// Réadapter ce message pour avoir une jolie alerte pour virement
-function verif_virement(){
-    var verif_virement=document.getElementById("verif_virement").value;
-    var erreur_contenu = document.getElementById("error_verif_virement_contenu");
-
-        if (selectedRowEmetteur === selectedRowBeneficiaire ) {
-            erreur_contenu.textContent = "Les 2 comptes doivent être différents";
-            $('#error_verif_virement_contenu').append("<i class=\"far fa-question-circle\" data-info=\"Opération impossible : le compte émetteur doit être différent du compte bénéficiaire\" id=\"icoInfo\"></i>");
-            erreur_contenu.style.color = "#D21929";
-            return false;
-        }else{
-            erreur_contenu.textContent = "";
-         return true;
-        }
-
-        if (selectedRowEmetteur != null && selectedRowBeneficiaire != null){
-            erreur_contenu.textContent = "Vous devez sélectionner deux comptes";
-            $('#error_verif_virement_contenu').append("<i class=\"far fa-question-circle\" data-info=\"Opération impossible : vous devez sélectionner un compte émetteur et un compte bénéficiaire\" id=\"icoInfo\"></i>");
-            erreur_contenu.style.color = "#D21929";
-            return false;
-        }
-        erreur_contenu.textContent = "";
-        return true;
-}
-*/

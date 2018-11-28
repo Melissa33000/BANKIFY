@@ -16,7 +16,7 @@ if (!empty($_POST)) {
 
 // Affichage de ses comptes actifs (affichage du compte avec solde et devise)
 $SQLQuery = 'SELECT * FROM compte WHERE id_utilisateur = :utilisateuractuel';
-$SQLStatement = $dbConn->prepare($SQLQuery);
+$SQLStatement = $db->prepare($SQLQuery);
 
 $SQLStatement->bindValue(':utilisateuractuel', $_SESSION['utilisateur']);
 if (!$SQLStatement->execute()) {
@@ -49,6 +49,7 @@ $SQLStatement->closeCursor();
             <header id="headerAPPonglet">
                 <h1>Choix des comptes</h1>
             </header>
+                <div id="error_datasrv"></div>
                 <section id="virement1" class="virement">
                     <div class="titrevirement">COMPTE EMETTEUR</div>
                     <div class="owl-carousel owl-theme" id="compte_emetteur">

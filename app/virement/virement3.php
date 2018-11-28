@@ -18,7 +18,7 @@ $idBeneficiaire = $_GET['comptebeneficiaire'];
 
 // Récolte des données des 2 comptes
 $SQLQuery = 'SELECT * FROM compte WHERE id_utilisateur = :utilisateuractuel and id= :id_compteemetteur';
-$SQLStatement = $dbConn->prepare($SQLQuery);
+$SQLStatement = $db->prepare($SQLQuery);
 $SQLStatement->bindValue(':utilisateuractuel', $_SESSION['utilisateur']);
 $SQLStatement->bindValue(':id_compteemetteur', $idEmetteur);
 
@@ -32,7 +32,7 @@ $SQLResultCompteEmetteur = $SQLStatement->fetchObject();
 $SQLStatement->closeCursor();
 
 $SQLQuery = 'SELECT * FROM compte WHERE id_utilisateur = :utilisateuractuel and id= :id_comptebeneficiaire';
-$SQLStatement = $dbConn->prepare($SQLQuery);
+$SQLStatement = $db->prepare($SQLQuery);
 $SQLStatement->bindValue(':utilisateuractuel', $_SESSION['utilisateur']);
 $SQLStatement->bindValue(':id_comptebeneficiaire', $idBeneficiaire);
 

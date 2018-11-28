@@ -51,7 +51,10 @@ p {
 
 /************************* MENU = La partie Menu tout en haut du site  ************************************/
 #menu {
-    padding: 15px;
+    padding_top: 10px;
+    padding_right: 15px;
+    padding_left: 15px;
+    padding_bottom: 10px;
     transition: all 0.8s;
 }
 #menu.navbar-default {
@@ -79,6 +82,7 @@ logo_bankify.png
     text-transform: uppercase;
 }
 */
+
 #menu.navbar-default .navbar-nav > li > a {
     font-family: 'Lato', sans-serif;
     text-transform: uppercase;
@@ -100,9 +104,22 @@ logo_bankify.png
     content: "";
     transition: width 0.2s;
 }
+
 #menu.navbar-default .navbar-nav > li > a:hover:after {
     width: 100%;
 }
+
+.logo{
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.container_menu{
+    display : flex;
+    justify-content : space-around;
+    align-items : center;
+}
+
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
     background-color: transparent;
 }

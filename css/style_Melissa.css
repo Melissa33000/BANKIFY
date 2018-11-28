@@ -323,7 +323,10 @@ footer{
   margin-top : 30px;
   margin-bottom : 0px;
   text-align: center;
-  padding: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 10px;
+  padding-bottom: 20px;
 }
 
 .formDesign input[type="submit"], .formDesign input[type="reset"]{
@@ -356,6 +359,7 @@ footer{
   margin-bottom: 3%;
   margin-top: 3%;
   background-color: rgba(255, 255, 255, 0.7);
+  width: 402px;
 }
 
 .formAjust{
@@ -369,6 +373,7 @@ footer{
   width : 50%;
   margin : auto;
 }
+
 
 .champs_form_C{
   width : 100%;
@@ -397,6 +402,10 @@ footer{
 #inscription .champ_form{
   padding-left : 15px;
   width: 65%;
+}
+
+#new_mdp2{
+  width: 363px;
 }
 
 /* Design des infobulles */

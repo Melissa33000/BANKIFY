@@ -6,7 +6,7 @@ if(!empty($_POST['email'])) {
     $email = $_POST['email'];
 
     // Sélection dans la BDD des données de l'utilisateur dont l'e-mail a été saisi
-    $SQLStatement = $dbConn->prepare('SELECT * FROM Utilisateur WHERE email = :email');
+    $SQLStatement = $db->prepare('SELECT * FROM Utilisateur WHERE email = :email');
     $SQLStatement->bindValue(':email', $_POST['email']);
 
     if (!$SQLStatement->execute()) {
@@ -19,7 +19,7 @@ if(!empty($_POST['email'])) {
 
     // Vérification que les données renvoyées par la BDD ne sont pas vides
     if (!isset($SQLResult->email)) {
-        $msgErrorBDD = "<div id=\"error_datasrv\">Vous ne pouvez pas utiliser cet e-mail car il est déjà pris par quelqu'un d'autre.<br> Contactez le support en cas de problème.</div>";
+        $msgErrorBDD = "<div id=\"error_datasrv\">Vous n'êtes pas enregistré en tant qu'utilisateur de Bankify.<br> Contactez le support en cas de problème.</div>";
         $jsErrorBDD = "<script type=\"text/javascript\">document.getElementById(\"email\").value = \"\";document.getElementById(\"email\").style.borderColor = \"#D21929\";document.getElementById(\"email\").focus();</script>";
     } else {
         // Création d'un nouveau mot de passe
@@ -32,7 +32,7 @@ if(!empty($_POST['email'])) {
         $NouveauMotPasse = genererChaineAleatoire(16);
 
         // Enregistrement de ce mot de passe dans la BDD
-        $SQLStatement = $dbConn->prepare('UPDATE Utilisateur set mdp = :new_mdp WHERE email = :email');
+        $SQLStatement = $db->prepare('UPDATE Utilisateur set mdp = :new_mdp WHERE email = :email');
         $SQLStatement->bindValue(':email', $_POST['email']);
         $SQLStatement->bindValue(':new_mdp', $NouveauMotPasse);
 
