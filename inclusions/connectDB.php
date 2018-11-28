@@ -1,10 +1,9 @@
 <?php
 
+
 $db = null;
 try{
     $dsn = 'mysql:host=localhost:;dbname=bankify;charset=utf8';
-    /*$username = 'root';
-    $password = 'root';*/
 
     $db = new PDO($dsn, $username, $password);
 }catch (Exception $e){

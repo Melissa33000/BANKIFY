@@ -1,8 +1,8 @@
+<?php session_start() ?>
 <noscript>
     <meta http-equiv="refresh" content="0; url=../404.php" />
 </noscript>
 <?php
-session_start();
 // A CHANGER QUAND ON ASSEMBLERA LE PROJET !!!
 $_SESSION['id'] = 3;
 $_SESSION['budget'] = "Dépenses";
@@ -55,7 +55,6 @@ if(!empty($_SESSION) AND isset($_SESSION['id'])){
                             <a href="sorties.php"><input type="button" value="Dépenses" id="btn_depenses" style="background-color: rgb(236, 74, 89)"/></a>
                             <a href="entrees.php"><input type="button" value="Revenus" id="btn_revenus" style="background-color: rgba(228,228,228,0.9)"/></a>
                     </div>
-
                     <div id="rubanProvisoire">
                         <form action="" method="post">
                             <label for="date">Changer de période : </label>
