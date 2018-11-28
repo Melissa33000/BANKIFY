@@ -1,8 +1,11 @@
 <?php
     session_start();
-    $_SESSION['id'] = 3;
-    
-    include_once("../../inclusions/connectDB.php");
+    include_once ('../../inclusions/connectDB.php');
+
+    if(!isset($_SESSION['utilisateur'])) {
+        header("Location:connexion1.php");
+        exit();
+    }
 
     include_once 'operations.php';
 
@@ -13,7 +16,7 @@
     $SQLQuery.="INNER JOIN type_operation ON operation.id_type_operation=type_operation.id ";
     $SQLQuery.="INNER JOIN categorie ON operation.id_categorie=categorie.id ";
     $SQLQuery.="INNER JOIN utilisateur ON utilisateur.id = compte.id_utilisateur ";
-    $SQLQuery.="WHERE categorie.id BETWEEN 1 AND 16 OR 10001 AND 10015 AND utilisateur.id=".$_SESSION['id'];
+    $SQLQuery.="WHERE categorie.id BETWEEN 1 AND 16 OR 10001 AND 10015 AND utilisateur.id=".$_SESSION['utilisateur'];
     $SQLQuery.=" ORDER BY operation.date DESC";
     $SQLResult = $db->query($SQLQuery);
     while($SQLRow = $SQLResult->fetchobject()){
@@ -29,7 +32,6 @@
         <title>Historique global</title>
         <?php include("../../inclusions/head.php"); ?>
         <meta charset="utf-8">
-        <link href="../../css/style_sirika.css" rel="stylesheet">
     </head>
     <body id="bodyOnglet">
         <!-- HEADER -->
