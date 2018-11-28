@@ -21,7 +21,7 @@ if(!empty($_GET) AND isset($_GET['id'])){
       <?php include("../../inclusions/head.php"); ?>
       
       <link href="../../css/style_sirika.css" rel="stylesheet">
-      <link href="../../css/style.css" rel="stylesheet">
+      <link href="../../css/style_Aurélien.css" rel="stylesheet">
   </head>
     <body id="bodyOnglet">
       <!-- HEADER -->
@@ -42,15 +42,15 @@ if(!empty($_GET) AND isset($_GET['id'])){
                 </div>
               </div>
                 <?php
-                  $query = "SELECT compte.numero as numero ,compte.nom as nom_compte, compte.solde_initial + sum(montant) as solde_actuel ,devise.symbole as symbDev , compte.id as id FROM compte ";
-                  $query .="INNER JOIN devise ON compte.id_devise = devise.id ";
-                  $query .="INNER JOIN utilisateur ON compte.id_utilisateur = utilisateur.id ";
-                  $query .="INNER JOIN operation ON compte.id = operation.id_compte ";
+                  $query = "SELECT compte.numero as numero ,compte.nom as nom_compte,compte.solde_initial, compte.solde_initial + sum(montant) as solde_actuel ,devise.symbole as symbDev , compte.id as id FROM compte ";
+                  $query .="LEFT OUTER JOIN devise ON compte.id_devise = devise.id ";
+                  $query .="LEFT OUTER JOIN utilisateur ON compte.id_utilisateur = utilisateur.id ";
+                  $query .="LEFT OUTER JOIN operation ON compte.id = operation.id_compte ";
                   $query .="WHERE utilisateur.id=".$_SESSION['id'];
                   $query .=" group by compte.id";
                   $result=$db->query($query);
                   while($row=$result->fetchobject()){
-                    $tabComptes[]=new Compte($row->numero, $row->nom_compte, $row->solde_actuel, $row->symbDev, $row->id);
+                    $tabComptes[]=new Compte($row->numero, $row->nom_compte,$row->solde_initial, $row->solde_actuel, $row->symbDev, $row->id);
                   }
                   $result->closeCursor();
 
@@ -83,18 +83,26 @@ if(!empty($_GET) AND isset($_GET['id'])){
       <?php 
         $script='';
         foreach ($tabComptes as $key=>$Compte){
-        $script .='<tr>';
-        $script .='<td>';
-        $script .='<a class="compteClick" href="historique_operations.php?id='.$Compte->getId().'"><div class="clickableAccount">'.$Compte->getNom_compte().'</td>';
-          if ($Compte->getSolde_actuel()<0){
-            $script .='<td><a class="compteClick" href="historique_operations.php?id='.$Compte->getId().'"><div class="SoldeInitial" name="Solde" style="color:red;" >'.$Compte->getSolde_actuel().$Compte->getSymbole_Devise().'</div></td>';
+          $script .='<tr>';
+          $script .='<td>';
+          $script .='<a class="compteClick" href="historique_operations.php?id='.$Compte->getId().'"><div class="clickableAccount">'.$Compte->getNom_compte().'</td>';
+          if ($Compte->getSolde_actuel() != null){
+            if ($Compte->getSolde_actuel()<0){
+              $script .='<td><a class="compteClick" href="historique_operations.php?id='.$Compte->getId().'"><div class="SoldeInitial" name="Solde" style="color:red;" >'.$Compte->getSolde_actuel().$Compte->getSymbole_Devise().'</div></td>';
+            }else{
+              $script .='<td><a class="compteClick" href="historique_operations.php?id='.$Compte->getId().'"><div class="SoldeInitial" name="Solde" style="color:green;" >'.$Compte->getSolde_actuel().$Compte->getSymbole_Devise().'</div></td>';
+            }
+            $script .='</div>';
+            $script .='</a>';
+            $script .='</tr>';
           }else{
-            $script .='<td><a class="compteClick" href="historique_operations.php?id='.$Compte->getId().'"><div class="SoldeInitial" name="Solde" style="color:green;" >'.$Compte->getSolde_actuel().$Compte->getSymbole_Devise().'</div></td>';
-          };
-          $script .='</div>';
-          $script .='</a>';
-          $script .='</tr>';
+            if ($Compte->getSolde_initial()<0){
+            $script .='<td><a class="compteClick" href="historique_operations.php?id='.$Compte->getId().'"><div class="SoldeInitial" name="Solde" style="color:red;" >'.$Compte->getSolde_initial().$Compte->getSymbole_Devise().'</div></td>';
+            }else{
+            $script .='<td><a class="compteClick" href="historique_operations.php?id='.$Compte->getId().'"><div class="SoldeInitial" name="Solde" style="color:green;" >'.$Compte->getSolde_initial().$Compte->getSymbole_Devise().'</div></td>';
+            }
           }
+        }
           print($script);
 
           $result->closeCursor();

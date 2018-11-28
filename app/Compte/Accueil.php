@@ -20,7 +20,7 @@ if(!empty($_GET) AND isset($_GET['id'])){
     <title> Accueil </title>
     <?php include("../../inclusions/head.php"); ?>
     <link href="../../css/style_sirika.css" rel="stylesheet">
-    <link href="../../css/style.css" rel="stylesheet">
+    <link href="../../css/style_Aurélien.css" rel="stylesheet">
   </head>
     <body id="bodyOnglet">
       <!-- HEADER -->
@@ -34,15 +34,15 @@ if(!empty($_GET) AND isset($_GET['id'])){
                 <h1>Accueil</h1>
             </header>
             <?php
-              $query = "SELECT compte.numero as numero ,compte.nom as nom_compte, compte.solde_initial + sum(montant) as solde_actuel ,devise.symbole as symbDev , compte.id as id FROM compte ";
-              $query .="INNER JOIN devise ON compte.id_devise = devise.id ";
-              $query .="INNER JOIN utilisateur ON compte.id_utilisateur = utilisateur.id ";
-              $query .="INNER JOIN operation ON compte.id = operation.id_compte ";
+              $query = "SELECT compte.numero as numero ,compte.nom as nom_compte,compte.solde_initial, compte.solde_initial + sum(montant) as solde_actuel ,devise.symbole as symbDev , compte.id as id FROM compte ";
+              $query .="LEFT OUTER JOIN devise ON compte.id_devise = devise.id ";
+              $query .="LEFT OUTER JOIN utilisateur ON compte.id_utilisateur = utilisateur.id ";
+              $query .="LEFT OUTER JOIN operation ON compte.id = operation.id_compte ";
               $query .="WHERE utilisateur.id=".$_SESSION['id'];
               $query .=" group by compte.id";
               $result=$db->query($query);
               while($row=$result->fetchobject()){
-                $tabComptes[]=new Compte($row->numero, $row->nom_compte, $row->solde_actuel, $row->symbDev, $row->id);
+                $tabComptes[]=new Compte($row->numero, $row->nom_compte,$row->solde_initial, $row->solde_actuel, $row->symbDev, $row->id);
               }
               $result->closeCursor();
               if (isset($_GET['id']) AND !empty($_GET)){
@@ -50,7 +50,7 @@ if(!empty($_GET) AND isset($_GET['id'])){
                 if ($id > 0){
                   $SQLQuery = "DELETE FROM compte WHERE id = :id";
                   try{
-                    $SQLStatement=$bdd->prepare($SQLQuery);
+                    $SQLStatement=$db->prepare($SQLQuery);
                     $SQLStatement->bindValue(':id', $id);
                     if ($SQLStatement->execute()){
                       print('<script type="text/javascript">document.location.href="Accueil.php";</script>');
@@ -77,10 +77,18 @@ if(!empty($_GET) AND isset($_GET['id'])){
               }else{
                 $script .='<div class="numero"> N/C </div>';
               }
-              if ($Compte->getSolde_actuel()<0){
-                $script .='<div class="SoldeInitial" name="Solde" style="color:red;" >'.$Compte->getSolde_actuel().$Compte->getSymbole_Devise().'</div>';
+              if ($Compte->getSolde_actuel()!= null){
+                if ($Compte->getSolde_actuel()<0){
+                  $script .='<div class="SoldeInitial" name="Solde" style="color:red;" >'.$Compte->getSolde_actuel().$Compte->getSymbole_Devise().'</div>';
+                }else{
+                  $script .='<div class="SoldeInitial" name="Solde" style="color:green;" >'.$Compte->getSolde_actuel().$Compte->getSymbole_Devise().'</div>';
+                }
               }else{
-                $script .='<div class="SoldeInitial" name="Solde" style="color:green;" >'.$Compte->getSolde_actuel().$Compte->getSymbole_Devise().'</div>';
+                if ($Compte->getSolde_initial()<0){
+                $script .='<div class="SoldeInitial" name="Solde" style="color:red;" >'.$Compte->getSolde_initial().$Compte->getSymbole_Devise().'</div>';
+              }else{
+                $script .='<div class="SoldeInitial" name="Solde" style="color:green;" >'.$Compte->getSolde_initial().$Compte->getSymbole_Devise().'</div>';
+              }
               }
               $script .='<div class="Icones">
                 <a href ="ajouter_entree.php?id='.$Compte->getId().'"><img src="../../images/transactions.png" alt="Modifier" ></a>

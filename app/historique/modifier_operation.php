@@ -9,8 +9,6 @@
     <head>
         <title> Modifier opération </title>
         <?php include("../../inclusions/head.php"); ?>
-        
-        <link href="../../css/style_sirika.css" rel="stylesheet">
     </head>
     <body id="bodyOnglet">
       <!-- HEADER -->

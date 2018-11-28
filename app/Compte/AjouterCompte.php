@@ -22,7 +22,7 @@ if(!empty($_GET) AND isset($_GET['id'])){
     <title> Ajout d'un compte </title>
       <?php include("../../inclusions/head.php"); ?>  
       <link href="../../css/style_sirika.css" rel="stylesheet">
-      <link href="../../css/style.css" rel="stylesheet">
+      <link href="../../css/style_Aurélien.css" rel="stylesheet">
   </head>
     <body id="bodyOnglet">
       <!-- HEADER -->
@@ -123,7 +123,7 @@ if(!empty($_GET) AND isset($_GET['id'])){
           <div class="fieldset">
             <div class="ligneChamp">
               <div class="nomchamp" > <label>Nom du compte :</label> </div>
-              <div class="champ" > <input class = "resize" id="NomCompte" type="text"  name="NomCompte" placeholder="Nom de votre compte.."> 
+              <div class="champ" > <input class = "resize" id="NomCompte" type="text"  name="NomCompte" placeholder="Nom de votre compte.." onkeyup="verif(this);"> 
               </div>
             </div>
             <div class="ligneChamp">
@@ -233,6 +233,23 @@ if(!empty($_GET) AND isset($_GET['id'])){
         return true;
       }
       }
+
+      function verif(chars) {
+        // Caractères autorisés
+        var regex = new RegExp("[a-z0-9]", "i");
+        var valid;
+        var keyCode = evt.which ? evt.which : evt.keyCode;
+        var interdit = 'àâäãçéèêëìîïòôöõùûüñ &*?!:;,\t#~"^¨%$£?²¤§%*()]{}<>|\\/`\'';
+        for (x = 0; x < chars.value.length; x++) {
+            valid = regex.test(chars.value.charAt(x));
+            if (valid == false) {
+                chars.value = chars.value.substr(0, x) + chars.value.substr(x + 1, chars.value.length - x + 1); x--;
+            }else if (interdit.indexOf(String.fromCharCode(keyCode)) >= 0) {
+               return false;
+            }
+        }
+      }
+    
 </script>
 <script src="../../scripts/javascript.js" type="text/javascript">
 </script>

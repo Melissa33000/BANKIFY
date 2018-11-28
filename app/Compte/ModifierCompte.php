@@ -8,7 +8,7 @@
     <title> Modification d'un compte </title>
     <?php include("../../inclusions/head.php"); ?>
     <link href="../../css/style_sirika.css" rel="stylesheet">
-    <link href="../../css/style.css" rel="stylesheet">
+    <link href="../../css/style_Aurélien.css" rel="stylesheet">
   </head>
     <body id="bodyOnglet">
       <!-- HEADER -->
